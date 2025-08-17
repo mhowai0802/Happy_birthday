@@ -1,4 +1,4 @@
-/* Full Screen Durian Styles */
+/* Birthday Celebration Styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,307 +7,215 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    background: white;
     color: #333;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .container {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 1000vh; /* Much longer vertical height for mobile scrolling */
     position: relative;
 }
 
-/* Durian Fullscreen */
-.durian-fullscreen {
+/* Birthday Section */
+.birthday-section {
     width: 100%;
-    height: 100%;
+    min-height: 1000vh;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.1);
+    padding: 50px 20px;
 }
 
-/* Durian Image */
-.durian-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+.birthday-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-/* Play Button */
-.play-button-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-
-.play-button {
-    background: none;
-    border: none;
-    color: white;
+/* Birthday Title */
+.birthday-title {
     font-size: 4rem;
-    cursor: pointer;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-    padding: 0;
-    width: auto;
+    color: #333;
+    margin-bottom: 100px;
+    animation: titleBounce 2s ease-in-out infinite;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes titleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    margin: 400px 0; /* Increased margin for longer scrolling */
+    display: inline-block;
+}
+
+.birthday-image {
+    max-width: 100%;
     height: auto;
-    line-height: 1;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: imageFloat 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
 }
 
-.play-button:hover {
-    transform: scale(1.2);
-    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.9);
+.birthday-image:hover {
+    transform: scale(1.05);
 }
 
-.play-button:active {
-    transform: scale(0.9);
+@keyframes imageFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-/* Carol Section */
-.carol-section {
+/* Birthday Overlay */
+.birthday-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 20;
-    transition: opacity 0.5s ease;
-    padding: 20px;
-}
-
-.carol-section.hidden {
-    opacity: 0;
     pointer-events: none;
 }
 
-/* Carol Image */
-.carol-image {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Back Button */
-.back-button {
+/* Sparkles */
+.sparkles {
     position: absolute;
-    bottom: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 2rem;
+    animation: sparkleFloat 4s ease-in-out infinite;
+    opacity: 0;
+}
+
+.sparkle:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+    top: 20%;
+    right: 15%;
+    animation-delay: 0.8s;
+}
+
+.sparkle:nth-child(3) {
+    bottom: 30%;
+    left: 10%;
+    animation-delay: 1.6s;
+}
+
+.sparkle:nth-child(4) {
+    bottom: 20%;
+    right: 25%;
+    animation-delay: 2.4s;
+}
+
+.sparkle:nth-child(5) {
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    background: linear-gradient(45deg, #4ECDC4, #6EE7DF);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(78, 205, 196, 0.4);
-    transition: all 0.3s ease;
-    z-index: 25;
+    animation-delay: 3.2s;
 }
 
-.back-button:hover {
-    transform: translateX(-50%) translateY(-2px);
-    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.6);
-}
-
-.back-button:active {
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Responsive Design for Different Screen Sizes */
-@media (max-width: 1200px) {
-    .back-button {
-        bottom: 25px;
-        padding: 14px 28px;
-        font-size: 1.1rem;
+@keyframes sparkleFloat {
+    0% { 
+        opacity: 0; 
+        transform: translateY(0) scale(0.5); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: translateY(-30px) scale(1.2); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-60px) scale(0.8); 
     }
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
-    .play-button {
-        font-size: 3.5rem;
+    .container {
+        min-height: 1500vh; /* Even longer for mobile */
     }
     
-    .back-button {
-        bottom: 20px;
-        padding: 12px 25px;
-        font-size: 1rem;
+    .birthday-section {
+        min-height: 1500vh;
     }
     
-    .carol-section {
-        padding: 15px;
+    .birthday-title {
+        font-size: 2.5rem;
+        margin-bottom: 60px;
     }
     
-    /* Mobile-specific durian image adjustments */
-    .durian-image {
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 100%;
+    .image-container {
+        margin: 600px 0; /* Much larger margin for mobile */
     }
     
-    .durian-fullscreen {
-        padding: 10px;
+    .sparkle {
+        font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .play-button {
-        font-size: 3rem;
-    }
-    
-    .back-button {
-        bottom: 15px;
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .carol-section {
-        padding: 10px;
-    }
-    
-    /* Small mobile durian image adjustments */
-    .durian-image {
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 100%;
-    }
-    
-    .durian-fullscreen {
-        padding: 8px;
-    }
-}
-
-@media (max-width: 360px) {
-    .play-button {
-        font-size: 2.5rem;
-    }
-    
-    .back-button {
-        bottom: 10px;
-        padding: 8px 16px;
-        font-size: 0.8rem;
-    }
-    
-    .carol-section {
-        padding: 8px;
-    }
-    
-    /* Extra small mobile durian image adjustments */
-    .durian-image {
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 100%;
-    }
-    
-    .durian-fullscreen {
-        padding: 5px;
-    }
-}
-
-/* Landscape orientation adjustments */
-@media (max-height: 500px) and (orientation: landscape) {
-    .play-button {
-        font-size: 3rem;
-    }
-    
-    .back-button {
-        bottom: 15px;
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .carol-section {
-        padding: 10px;
-    }
-    
-    /* Landscape durian image adjustments */
-    .durian-image {
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 100%;
-    }
-    
-    .durian-fullscreen {
-        padding: 8px;
-    }
-}
-
-/* Mobile-first viewport adjustments */
-@media (max-width: 768px) {
     .container {
-        width: 100%;
-        height: 100vh;
-        min-height: 100vh;
+        min-height: 2000vh; /* Very long for small mobile */
     }
     
-    .durian-fullscreen {
-        width: 100%;
-        height: 100vh;
-        min-height: 100vh;
+    .birthday-section {
+        min-height: 2000vh;
+    }
+    
+    .birthday-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        padding: 15px;
+    }
+    
+    .image-container {
+        margin: 800px 0; /* Very large margin for small mobile */
+    }
+    
+    .sparkle {
+        font-size: 1.2rem;
     }
 }
 
-/* High DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .durian-image,
-    .carol-image {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-/* Ensure proper scaling on very large screens */
-@media (min-width: 1920px) {
-    .play-button {
-        font-size: 5rem;
-    }
-    
-    .back-button {
-        bottom: 40px;
-        padding: 18px 35px;
-        font-size: 1.4rem;
-    }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
 }
 
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    .play-button:hover {
-        transform: none;
-    }
-    
-    .play-button:active {
-        transform: scale(0.9);
-    }
-    
-    .back-button:hover {
-        transform: translateX(-50%);
-    }
-    
-    .back-button:active {
-        transform: translateX(-50%) scale(0.95);
-    }
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
 }
